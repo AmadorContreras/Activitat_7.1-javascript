@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+    <meta charset="utf-8">
+  	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css?_cacheOverride=1574773860125" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins|Varela+Round&display=swap">
+  	<link rel="stylesheet" href="./css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+    <title>Crucero</title>
+  </head>
+<body>
+
+
+  <h1 id="titulo">Maravillas del Mediterráneo</h1>
+  <div class="container" id="contenedor">
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-lg-4 col-md-12 col-sm-12" >
+          <img src="img/crucero.jpg" class="card-img img-thumbnail" alt="..."> 
+        </div>
+        <div class="col-lg-8 col-md-12 col-sm-12 " id="card-body">
+          <div class="card-body">
+            <h5 id="film-title" class="card-title">#</h5>
+            <div class="card-text">
+              <div>
+                <dl class="row">
+                  <dt class="col-sm-3">Descripción</dt>
+                  <dd id="film-synopsi" class="col-sm-9 text-justify">#</dd>
+    
+                  <dt class="col-sm-3">Duración</dt>
+                  <dd id="film-genre" class="col-sm-9">#</dd>
+    
+                  <dt class="col-sm-3">Buque</dt>
+                  <dd id="film-premiere" class="col-sm-9">#</dd>
+    
+                  <dt class="col-sm-3 text-truncate">Salida</dt>
+                  <dd id="film-age" class="col-sm-9">#</dd>
+    
+                  <dt class="col-sm-3 text-truncate">Todo incluido</dt>
+                  <dd id="film-sessions" class="col-sm-9"></dd>
+
+                  <dt class="col-sm-3 text-truncate">Precio/persona</dt>
+                  <dd id="film-price" class="col-sm-9">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">Suit</th>
+                          <th scope="col">Precio</th>
+                        </tr>
+                      </thead>
+                      <tbody id="price">
+                
+                      </tbody>
+                    </table>
+        
+                    <script >
+                      let preciopersona = [
+                        ["Interior", "309€"],
+                        ["exterior", "389€"],
+                        ["Suit", "639€"]
+                      ];
+                      
+                      for(let sitio of preciopersona){
+                      let fila = `
+                        <tr>
+                          <th scope="row">${sitio[0]}</th>
+                          <td>${sitio[1]}</td>
+                        </tr>
+                        `;
+                        document.getElementById("price").innerHTML+=fila;
+                      }   
+                    </script>
+
+
+
+                  </dd>
+
+                  <dt class="col-sm-3  text-truncate">Fecha de inicio</dt>
+                  <dd id="film-start" class="col-sm-9"></dd>
+
+                  <dt class="col-sm-3 text-truncate">Fecha de fin</dt>
+                  <dd id="film-end" class="col-sm-9"></dd>
+    
+                  
+                </dl>
+              </div>
+              
+
+              <h1 class="card-title">Itinerario</h1>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Día</th>
+                    <th scope="col">Ciudad</th>
+                    <th scope="col">Llegada</th>
+                    <th scope="col">Salida</th>
+                  </tr>
+                </thead>
+                <tbody id="menu-setmanal">
+          
+                </tbody>
+              </table>
+
+              <script >
+                let Menu = [
+                  ["1", "Barcelona", "18:00", "--:--"],
+                  ["2", "Navegación", "--:--", "--:--"],
+                  ["3", "Nápoles (Pompeya)", "09:00", "19:00"],
+                  ["4", "Civitavecchia (Roma)", "08:00", "19:00"],
+                  ["5", "Livorno (Florencia/Pisa)", "08:00", "20:00"],
+                  ["6", "Villefranche (Niza)", "08:00", "17:00"],
+                  ["7", "Marsella", "08:00", "17:00"],
+                  ["8", "Barcelona", "08:00", "--:--"]
+                ];
+                
+                for(let Dia of Menu){
+                let fila = `
+                  <tr>
+                    <th scope="row">${Dia[0]}</th>
+                    <td>${Dia[1]}</td>
+                    <td>${Dia[2]}</td>
+                    <td>${Dia[3]}</td>
+                  </tr>
+                  `;
+                  document.getElementById("menu-setmanal").innerHTML+=fila;
+                
+                }
+                
+                </script>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+  //atributo: valor
+  var crucero = {
+    "titol":"<h1>Sovereign</h1>",
+    "sinopsi":"Navega por el Mediterráneo y conoce los rincones más monumentales de España, Italia y Francia. A bordo del Sovereign descubrirás importantes ciudades, como la española Barcelona, las francesas Villefranche y Marsella, y las italianas Livorno, Roma y Nápoles.",
+    "genere":"8 días - 7 noches",
+    "edat": "Barcelona",
+    "estrena":"Sovereign",
+    "sessions":["Bebidas ilimitadas","Gastronomía","Actividades de día y de noche","Entretenimiento infantil y juvenil"],
+    "start":"20-03-2021",
+    "end":"28-03-2021",
+    "price":"",
+  }
+
+    document.getElementById("film-title").innerHTML= crucero.titol;
+    document.getElementById("film-synopsi").innerHTML= crucero.sinopsi;
+    document.getElementById("film-genre").innerHTML= crucero.genere;
+    document.getElementById("film-age").innerHTML= crucero.edat;
+  
+    document.getElementById("film-premiere").innerHTML= crucero.estrena;
+
+
+    // document.getElementById("film-price").innerHTML= crucero.price;
+    document.getElementById("film-start").innerHTML= crucero.start;
+    document.getElementById("film-end").innerHTML= crucero.end;
+
+    var contenidorSessions = document.getElementById("film-sessions");
+    var contenidorPrice = document.getElementById("film-price");
+
+    for (let hora of crucero.sessions) {
+      contenidorSessions.innerHTML+=`<span class="badge badge-info">${hora}</span> `;
+    }
+
+    for (let price of crucero.price) {
+      contenidorPrice.innerHTML+=` <h1 class="card-title"> ${price}</h1> `;
+    }
+
+
+  </script>
+</body>
+</html>
